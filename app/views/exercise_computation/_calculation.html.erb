@@ -1,0 +1,409 @@
+<div class="container">
+   <html>
+     <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js" integrity="sha512-vs7+jbztHoMto5Yd/yinM4/y2DOkPLt0fATcN+j+G4ANY2z4faIzZIOMkpBmWdcxt+596FemCh9M18NUJTZwvw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+       <%= javascript_pack_tag 'calculators', 'data-turbolinks-track': 'reload' %>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/pepper-grinder/jquery-ui.min.css" integrity="sha512-0XBnOvRsajSm8bnk/1fF1Cif0GcuA5L2XQAj4K9h3ZQPDsRnQuKYvdqWrz/DdEsvq24zqOeR34a+mEzGokRGhA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+       <script type="text/javascript">
+         $(document).ready(function(){
+           $("#accordion").accordion();
+           $("#tab").tabs();
+         });
+
+       </script>
+     </head>
+     <body>
+       <section id="content">
+       <div class="entry">
+       <div class="entry-content">
+         <h1>Fitness Calculators</h1>
+         <p><font size="+1" color="#686968"><strong>Common Inputs</strong></font></p>
+           <div class="common_inputs">
+             <strong>Gender: </strong>
+             <select data-bind="value:gender" id="bmrgender" name="gender">
+               <option value="female">Female</option>
+               <option value="male">Male</option>
+             </select>&nbsp;&nbsp;
+             <strong>Age: </strong><input data-bind="value:age, valueUpdate: 'afterkeydown'" size="3" type="number" min="1" max="120"/>&nbsp;&nbsp;
+             <strong>Weight: </strong><input data-bind="value:weight, valueUpdate: 'afterkeydown'" type="number" size="4" >&nbsp;lb&nbsp;&nbsp;
+             <strong>Height: </strong>
+             <select data-bind="value: height" >
+               <option value="122">4ft 0in (122cm)</option>
+               <option value="124">4ft 1in (124cm)</option>
+               <option value="127">4ft 2in (127cm)</option>
+               <option value="130">4ft 3in (130cm)</option>
+               <option value="132">4ft 4in (132cm)</option>
+               <option value="135">4ft 5in (135cm)</option>
+               <option value="137">4ft 6in (137cm)</option>
+               <option value="140">4ft 7in (140cm)</option>
+               <option value="142">4ft 8in (142cm)</option>
+               <option value="145">4ft 9in (145cm)</option>
+               <option value="147">4ft 10in (147cm)</option>
+               <option value="150">4ft 11in (150cm)</option>
+               <option value="152">5ft 0in (152cm)</option>
+               <option value="155">5ft 1in (155cm)</option>
+               <option value="157">5ft 2in (157cm)</option>
+               <option value="160">5ft 3in (160cm)</option>
+               <option value="163">5ft 4in (163cm)</option>
+               <option value="165" selected="selected">5ft 5in (165cm)</option>
+               <option value="168">5ft 6in (168cm)</option>
+               <option value="170">5ft 7in (170cm)</option>
+               <option value="173">5ft 8in (173cm)</option>
+               <option value="175">5ft 9in (175cm)</option>
+               <option value="178">5ft 10in (178cm)</option>
+               <option value="180">5ft 11in (180cm)</option>
+               <option value="183">6ft 0in (183cm)</option>
+               <option value="185">6ft 1in (185cm)</option>
+               <option value="188">6ft 2in (188cm)</option>
+               <option value="191">6ft 3in (191cm)</option>
+               <option value="193">6ft 4in (193cm)</option>
+               <option value="196">6ft 5in (196cm)</option>
+               <option value="198">6ft 6in (198cm)</option>
+               <option value="201">6ft 7in (201cm)</option>
+               <option value="203">6ft 8in (203cm)</option>
+               <option value="206">6ft 9in (206cm)</option>
+               <option value="208">6ft 10in (208cm)</option>
+               <option value="211">6ft 11in (211cm)</option>
+               <option value="213">7ft 0in (213cm)</option>
+               <option value="216">7ft 1in (216cm)</option>
+               <option value="218">7ft 2in (218cm)</option>
+               <option value="221">7ft 3in (221cm)</option>
+               <option value="224">7ft 4in (224cm)</option>
+               <option value="226">7ft 5in (226cm)</option>
+               <option value="229">7ft 6in (229cm)</option>
+               <option value="231">7ft 7in (231cm)</option>
+               <option value="234">7ft 8in (234cm)</option>
+               <option value="236">7ft 9in (236cm)</option>
+               <option value="239">7ft 10in (239cm)</option>
+               <option value="241">7ft 11in (241cm)</option>
+               <option value="244">8ft 0in (244cm)</option>
+             </select>
+           </div>
+         <div id="tab">
+           <ul>
+             <li><a href="#pft" ><span>Personal Fitness Test</span></a></li>
+             <li><a href="#bmr" ><span>Basal Metabolic Rate</span></a></li>
+             <li><a href="#rmr" ><span>Resting Metabolic Rate</span></a></li>
+             <li><a href="#bmi" ><span>Body Mass Index</span></a></li>
+             <li><a href="#dcb" ><span>Daily Calories Burned</span></a></li>
+             <li><a href="#mhr" ><span>Maximum Heart Rate</span></a></li>
+             <li><a href="#cbr" ><span>Calorie Burn Calculator</span></a></li>
+             <li><a href="#vo2max" ><span>V02max</span></a></li>
+             <li><a href="#cbra" ><span>Calories Burned by Activity</span></a></li>
+           </ul>
+           <div<br />
+           <div id="pft">
+             <h2> Calculate your Personal Fitness Test Score! </h2>
+             <p>
+             <aside class="box notice_box">
+               <table>
+                 <tbody>
+                   <tr>
+                     <td>&nbsp;</td>
+                     <td>
+                       Use this calculator to calculate your PFT (Personal Fitness Test) score. 
+                       <p/>
+                       <p>This score is the combination of scores for 1.5 mile run time, number of pushups and number of sit-ups you can do in 2 minutes.
+                     </td>
+                   </tr>
+                 </tbody>
+               </table>
+             </aside>
+             <p>Please enter exact time that you need to complete 1.5 mile distance.</p>
+             <p><strong> 1.5 Mile Completion Time</strong>: <input type="number" max="30" min="4" data-bind="value: runtime_min"/> minutes and <input type="number" max="59" min="0" data-bind="value: runtime_sec"/> seconds.</p>
+             <p><strong> Number of Push Ups </strong>: <input type="number" max="200" min="0" data-bind="value: pushups"/></p>
+             <p><strong> Number of Sit Ups</strong>: <input type="number" max="200" min="0" data-bind="value: situps"/></p>
+             <p><big>Results</big></p>
+             <p>Run Score: <strong data-bind="text:runscore"></strong>.
+               Push Ups Score:  <strong data-bind="text:pushupscore"></strong>
+               Sit Ups Score:  <strong data-bind="text:situpscore"></strong>
+             </p>
+             <p>Your overall PFT score is: <strong data-bind="text:pft"></strong></p>
+           </div>
+           <div id="bmr">
+             <h2>Basal Metabolic Rate</h2>
+             <p>
+             <aside class="box notice_box">
+               <table>
+                 <tbody>
+                   <tr>
+                     <td>&nbsp;</td>
+                     <td>Use this calculator to estimate your Basal Metabolic Rate (BMR). This is the amount of calories that you burn while you are at complete rest and not digesting any food.</td>
+                   </tr>
+                 </tbody>
+               </table>
+             </aside>
+             <p>Your BMR is: <strong data-bind="text:bmr"></strong></p>
+           </div>
+           <div id="rmr">
+             <h2>Resting Metabolic Rate</h2>
+             <p>
+             <aside class="box notice_box">
+               <table>
+                 <tbody>
+                   <tr>
+                     <td>&nbsp;</td>
+                     <td>Use this calculator to estimate your Resting Metabolic Rate (RMR). This is the amount of calories that you burn while you are at complete rest but still digesting food.<br /></td>
+                   </tr>
+                 </tbody>
+               </table>
+             </aside>
+             <p>Your RMR is: <strong data-bind="text:rmr"></strong></p>
+           </div>
+           <div id="bmi">
+             <h2>Body Mass Index</h2>
+             <p>
+             <aside class="box notice_box">
+               <table>
+                 <tbody>
+                   <tr>
+                     <td>&nbsp;</td>
+                     <td>Use this calculator to find out what your body mass index (BMI) is.</td>
+                   </tr>
+                 </tbody>
+               </table>
+             </aside>
+             <p>Your BMI is: <strong data-bind="text:bmi"></strong></p>
+             <p>Your BMI Category is <strong data-bind="text:bmicat"></strong></p>
+           </div>
+           <div id="dcb">
+             <h2>Daily Calories Burned Calculator</h2>
+             <p>
+             <aside class="box notice_box">
+               <table>
+                 <tbody>
+                   <tr>
+                     <td>&nbsp;</td>
+                     <td>Use this calculator to estimate the total amount of calories that you burn during an average day.</td>
+                   </tr>
+                 </tbody>
+               </table>
+             </aside>
+             <select data-bind="value: activitylevelfactor">
+               <option value="1.2">Sedentary</option>
+               <option value="1.375">Lightly Active</option>
+               <option value="1.55">Moderately Active</option>
+               <option value="1.725">Very Active</option>
+               <option value="1.9">Extremely Active</option>
+             </select>
+             <p>Your Daily Calories Burned is: <strong data-bind="text:dcb"></strong></p>
+           </div>
+           <div id="mhr">
+             <h2>Maximum Heart Rate</h2>
+             <p>
+             <aside class="box notice_box">
+               <table>
+                 <tbody>
+                   <tr>
+                     <td>&nbsp;</td>
+                     <td>Use this calculator to estimate your maximum heart rate.<br /></td>
+                   </tr>
+                 </tbody>
+               </table>
+             </aside>
+             <p>Classic: Your maximum heart rate is: <strong data-bind="text:maxhr"></strong> beats/minute.<br />
+               Tanaka: Your maximum heart rate is <strong data-bind="text:maxhrtanaka"></strong> beats/minute.
+             </p>
+           </div>
+           <div id="cbr">
+             <h2>Calculate Your Calories Burned by Heart Rate</h2>
+             <p>
+             <aside class="box notice_box">
+               <table>
+                 <tbody>
+                   <tr>
+                     <td>&nbsp;</td>
+                     <td>This calculator provides an estimate of calories burn during exercise based on your heart rate<br /></td>
+                   </tr>
+                 </tbody>
+               </table>
+             </aside>
+             <p><strong>Activity Duration: </strong>
+             <div style="margin: 10px" data-bind="slider: act_duration, sliderOptions: {min: 0, max: 7200, range: 'min', step: 1}"></div>
+             </p>
+             <p>(<strong data-bind="text:act_min"> </strong> minutes and <strong data-bind="text:act_sec"></strong> seconds.)</p>
+             <p>Average Heart Rate: <input size="3" data-bind="value:avg_hr" type="text"/></p>
+             <p>At <strong data-bind="text:avg_hr_percent"></strong> % of estimated maximum heart rate (<strong data-bind="text: maxhrtanaka"></strong>), your calorie burn is an estimated <strong data-bind="text: calorieburnrate"></strong> calories per hour.</p>
+             <p> You will burn <strong data-bind="text:totalcals"></strong> total calories in <span data-bind="text:act_min"></span> minutes and <span data-bind="text:act_sec"></span> seconds.</p>
+             <p>  
+           </div>
+           <div id="vo2max">
+             <h2>Calculate Your V02max</h2>
+             <p>
+             <aside class="box notice_box">
+               <table>
+                 <tbody>
+                   <tr>
+                     <td>&nbsp;</td>
+                     <td>This page actually has four separate VO2max calculators that are able to estimate your VO2max based on your resting heart rate or performance of a variety of physical exertion tests.<br /></td>
+                   </tr>
+                 </tbody>
+               </table>
+             </aside>
+             <h4> Resting heart rate based VO2max calculator</h4>
+             <strong>20 second resting hear rate</strong>:<input type="number" max="70" min="15" data-bind="value: resting_hr"/>
+             <p>Your estimated VO2max is <strong data-bind="text:rhr_vo2max"></strong> ml/kg/min.</p>
+             <h4> 1.5 mile run test based VO2max calculator</h4>
+             Please enter exact time that you need to complete 1.5 mile distance.
+             <strong> 1.5 mile completion time</strong>: <input type="number" max="30" min="4" data-bind="value: runtime_min"/> minutes and <input type="number" max="59" min="0" data-bind="value: runtime_sec"/> seconds.
+             <p>Your estimated VO2max is <strong data-bind="text:run_vo2max"></strong> ml/kg/min.</p>
+             The table below shows the standard VO2max ranges for both men and women:
+             <table class="table" data-bind="visible: gender() == 'female'">
+               <tbody>
+                 <tr>
+                   <th colspan="6">VO2max (mL/kg/min) Classifications for Women</th>
+                 </tr>
+                 <tr>
+                   <td>Age (years)</td>
+                   <td>Poor</td>
+                   <td>Fair</td>
+                   <td>Good</td>
+                   <td>Excellent</td>
+                   <td>Superior</td>
+                 </tr>
+                 <tr data-l="29" data-bind="visible: checkAge">
+                   <td>20 - 29</td>
+                   <td>≤ 35</td>
+                   <td>36 - 39</td>
+                   <td>40 - 43</td>
+                   <td>44 - 49</td>
+                   <td>50+</td>
+                 </tr>
+                 <tr data-l="30" data-h="39" data-bind="visible: checkAge">
+                   <td>30 - 39</td>
+                   <td>≤ 33</td>
+                   <td>34 - 36</td>
+                   <td>37 - 40</td>
+                   <td>41 - 45</td>
+                   <td>46+</td>
+                 </tr>
+                 <tr data-bind="visible: (age() > 39 && age() <= 49)">
+                   <td>40 - 49</td>
+                   <td>≤ 31</td>
+                   <td>32 - 34</td>
+                   <td>35 - 38</td>
+                   <td>39 - 44</td>
+                   <td>45+</td>
+                 </tr>
+                 <tr data-bind="visible: (age() > 49 && age() <= 59)">
+                   <td>50 - 59</td>
+                   <td>≤ 24</td>
+                   <td>25 - 28</td>
+                   <td>29 - 30</td>
+                   <td>31 - 34</td>
+                   <td>35+</td>
+                 </tr>
+                 <tr data-bind="visible: (age() > 59 && age() <= 69)">
+                   <td>60 - 69</td>
+                   <td>≤ 25</td>
+                   <td>26 - 28</td>
+                   <td>29 - 31</td>
+                   <td>32 - 35</td>
+                   <td>36+</td>
+                 </tr>
+                 <tr data-bind="visible: (age() > 69 )">
+                   <td>70 - 79</td>
+                   <td>≤ 23</td>
+                   <td>24 - 26</td>
+                   <td>27 - 29</td>
+                   <td>30 - 35</td>
+                   <td>36+</td>
+                 </tr>
+               </tbody>
+             </table>
+             <table class="table" data-bind="visible: gender() == 'male'">
+               <tbody>
+                 <tr>
+                   <th colspan="6">VO2max (mL/kg/min) Classifications for Men</th>
+                 </tr>
+                 <tr>
+                   <td>Age (years)</td>
+                   <td>Poor</td>
+                   <td>Fair</td>
+                   <td>Good</td>
+                   <td>Excellent</td>
+                   <td>Superior</td>
+                 </tr>
+                 <tr data-bind="visible: age() <= 29 ">
+                   <td>20 - 29</td>
+                   <td>≤ 41</td>
+                   <td>42 - 45</td>
+                   <td>46 - 50</td>
+                   <td>51 - 55</td>
+                   <td>56+</td>
+                 </tr>
+                 <tr data-bind="visible: (age() > 29 && age() <= 39)">
+                   <td>30 - 39</td>
+                   <td>≤ 40</td>
+                   <td>41 - 43</td>
+                   <td>44 - 47</td>
+                   <td>48 - 53</td>
+                   <td>54+</td>
+                 </tr>
+                 <tr data-bind="visible: (age() > 39 && age() <= 49)">
+                   <td>40 - 49</td>
+                   <td>≤ 37</td>
+                   <td>38 - 41</td>
+                   <td>42 - 45</td>
+                   <td>46 - 52</td>
+                   <td>53+</td>
+                 </tr>
+                 <tr data-bind="visible: (age() > 49 && age() <= 59)">
+                   <td>50 - 59</td>
+                   <td>≤ 34</td>
+                   <td>35 - 37</td>
+                   <td>38 - 42</td>
+                   <td>43 - 49</td>
+                   <td>50+</td>
+                 </tr>
+                 <tr data-bind="visible: (age() > 59 && age() <= 69)">
+                   <td>60 - 69</td>
+                   <td>≤ 30</td>
+                   <td>31 - 34</td>
+                   <td>35 - 38</td>
+                   <td>39 - 45</td>
+                   <td>46+</td>
+                 </tr>
+                 <tr data-bind="visible: age() > 69  ">
+                   <td>70 - 79</td>
+                   <td>≤ 27</td>
+                   <td>28 - 30</td>
+                   <td>31 - 35</td>
+                   <td>36 - 41</td>
+                   <td>42+</td>
+                 </tr>
+               </tbody>
+             </table>
+           </div>
+           <div id="cbra">
+             <h2>Calculate Your Calories Burned by Activity</h2>
+             <p>
+             <aside class="box notice_box">
+               <table>
+                 <tbody>
+                   <tr>
+                     <td>&nbsp;</td>
+                     <td>This calculator provides an estimation of calorie burn for over 600 different activities.<br /></td>
+                   </tr>
+                 </tbody>
+               </table>
+             </aside>
+             <p>
+               Activity Category:<select data-bind="options: availableActivities, value: selectedActivity"></select>
+               Detailed Activity :<select data-bind="options: availableDetailedActivities, optionsText: 'name', optionsValue: 'value', value: selectedDetailActivity"></select>
+             </p>
+             <p><strong>Activity Duration: </strong>
+             <div style="margin: 10px" data-bind="slider: act_duration, sliderOptions: {min: 0, max: 7200, range: 'min', step: 1}"></div>
+             </p>
+             <p>(<strong data-bind="text:act_min"> </strong> minutes and <strong data-bind="text:act_sec"></strong> seconds.)</p>
+             <p>You burned an estimated <strong data-bind="text:abcb"></strong> calories.</p>
+           </div>
+           <br />
+         </div>
+       </div>
+     </body>
+   </html>
+ </div>
