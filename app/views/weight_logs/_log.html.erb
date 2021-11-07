@@ -1,0 +1,45 @@
+<div class="logs">
+  <%= form_for :weight_log do |f| %>
+   <div class="container">
+   <p><font size="+1" color="#686968"><strong>Enter Your Weight Log Below</strong></font></p>
+   <div class="row"> 
+    <div class="col-6 col-sm-3 mb-3">
+      <%= f.label :weight, { class: "form-label"} %>
+      <%= f.number_field :weight, { class: "form-control", placeholder: "lb", step: "0.01" } %>
+    </div>
+    <div class="col-6 col-sm-3 mb-3">
+      <%= f.label :notes, { class: "form-label"} %>
+      <%= f.text_field :notes, { class: "form-control", placeholder: "description" } %><br />
+    </div>
+    <div class="col-6">
+      <%= f.submit "Add to Logs", class: "btn btn-primary" %>
+    </div>
+    </div>
+    </div>
+    </div>
+    <% end %>
+</div>
+<div class="container">
+<center>
+<table class="styled-table">
+  <thead>
+      <tr>
+          <th style="width: 200px">Date</th>
+          <th style="width: 200px">Time</th>
+          <th style="width: 200px">Weight</th>
+          <th style="width: 300px">Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+  <% @weight_logs.each do |d| %>
+      <tr>
+          <td><%= d.created_at.to_date %></td>
+          <td><%= d.created_at.strftime("%I:%M %p") %></td>
+          <td><b><%= d.weight %></b></td>
+          <td><%= d.notes.nil? ? "---" : d.notes %></td>
+      </tr>
+  <%end%>
+  </tbody>
+</table>
+</center>
+</div> 

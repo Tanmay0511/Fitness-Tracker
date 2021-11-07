@@ -10,12 +10,12 @@
           <% else %>
             <%logo = "FitTracker"%>
           <% end %>
-          <%= link_to "#{logo}", '#', id: "logo" %>
+          <%= link_to "#{logo}", '/', id: "logo" %>
           <nav>
             <ul class="nav navbar-nav navbar-right">
               <% if !current_user&.admin? %>
-              <li class="sidebar-brand"><a href="#">Fitness Tracker</a></li>
-              <li><a href="#top">Home</a></li>
+              <li class="sidebar-brand"><a href="/">Fitness Tracker</a></li>
+               <li><a href="/">Home</a></li>
               
               <li><a href="#about">About</a></li>
               <li><a href="#services">Features</a></li>
@@ -34,7 +34,7 @@
       <% if current_user&.admin? %>
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-        <h2>Total Number of Users: <%= @user.count%></h2>
+        <h2>Total Number of Users: <%= @all_user.count%></h2>
         <table>
         <tr>
           <th>No. &nbsp; &nbsp; &nbsp;</th>
@@ -42,7 +42,7 @@
           <th>Joined on</th>
         </tr>
         <% count = 1 %>
-        <% @user.each.each do |u| %>
+        <% @all_user.each.each do |u| %>
         <tr>
           <td><%= count %></td>
           <td><%= u.email %>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</td>
