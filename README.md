@@ -2,22 +2,4 @@
 
 # README
 
-This README would normally document whatever steps are necessary to get the application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+The main purpose of the app is to provide a structured environment for individuals who want to lose or gain weight. The software will provide a personalized user experience in which the user may record statistics, make objectives, compare their performance to that of other users, track nutrition, set goals, track progress, sleep tracker, water tracker, and track the amount of steps they have walked. Individuals can also utilize the app to become aware of flaws in their daily behaviors, which should inspire them to self-regulate in the direction of progress. The overall purpose is to display the user their daily routines and assist them in making decisions that will lead to a healthier lifestyle and, as a result, a happier existence. Ultimately, the fundamental issue that this project will address is a lack of information and motivation. People are frequently not given enough information so that they can stay up to date on the newest health facts and have a clear sense of direction in terms of what has to be done and how to achieve it.
