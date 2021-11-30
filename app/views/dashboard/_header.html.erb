@@ -1,0 +1,43 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+    <% if current_user&.admin? %>
+      <%logo = "FitTracker | AdminPanel"%>
+    <% else %>
+      <%logo = "FitTracker"%>
+    <% end %>
+    <%= link_to "#{logo}", '/', id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if !current_user&.admin? %>
+          <li><a href="/">Home</a></li>
+          <% if user_signed_in? %>
+            <li>
+            <div class="dropdown">
+              <button class="dropbtn">Features</button>
+              <div class="dropdown-content">
+                <a href="/exercise_computation/index">Exercise computations</a>
+                <a href="/weight_logs/index">Weight logs</a>
+                <a href="#">Track Food intake</a>
+                <a href="#">Dashboard</a>
+              </div>
+            </div>
+            </li>
+          <%else%>
+            <li><a href="#services">Features</a></li>
+          <%end%>
+        <% end %>
+        <% if user_signed_in? %>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">Account</button>
+              <div class="dropdown-content">
+                <%= link_to "Edit Account", edit_user_registration_path%>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+              </div>
+            </div>
+          </li>
+        <% else %>
+          <li><%= link_to "Log in", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+</header>
