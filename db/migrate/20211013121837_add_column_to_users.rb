@@ -1,6 +1,5 @@
-class AddColumnsToUsers < ActiveRecord::Migration[6.1]
+class AddColumnToUsers < ActiveRecord::Migration[6.1]
   def change
-    add_column :users, :start_weight, :float
-    add_column :users, :goal_weight, :float
+    add_column :users, :admin, :boolean, default: false, null: false
   end
 end

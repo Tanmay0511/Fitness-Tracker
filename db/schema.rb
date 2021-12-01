@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_10_24_133452) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false, null: false
     t.float "start_weight"
-     t.float "goal_weight"
+    t.float "goal_weight"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
