@@ -23,14 +23,14 @@
         <p><font size="+1" color="#686968"><strong>Common Inputs</strong></font></p>
           <div class="common_inputs">
             <strong>Gender: </strong>
-            <select data-bind="value:'<%= current_user.gender.to_s%>'" id="bmrgender" name="gender">
+            <select data-bind="value:gender" id="bmrgender" name="gender">
               <option value="female">Female</option>
               <option value="male">Male</option>
             </select>&nbsp;&nbsp;
-            <strong>Age: </strong><input data-bind="value:<%= current_user.age %>, valueUpdate: 'afterkeydown'" size="3" type="number" min="1" max="120"/>&nbsp;&nbsp;
-            <strong>Weight: </strong><input data-bind="value:<%= current_user.start_weight %>, valueUpdate: 'afterkeydown'" type="number" size="4" >&nbsp;lb&nbsp;&nbsp;
+            <strong>Age: </strong><input data-bind="value:age, valueUpdate: 'afterkeydown'" size="3" type="number" min="1" max="120"/>&nbsp;&nbsp;
+            <strong>Weight: </strong><input data-bind="value:weight, valueUpdate: 'afterkeydown'" type="number" size="4" >&nbsp;lb&nbsp;&nbsp;
             <strong>Height: </strong>
-            <select data-bind="value: <%= current_user.height %>" >
+            <select data-bind="value: height" >
               <option value="122">4ft 0in (122cm)</option>
               <option value="124">4ft 1in (124cm)</option>
               <option value="127">4ft 2in (127cm)</option>

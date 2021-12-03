@@ -28,13 +28,6 @@
           <center><a href="#starting" class="btn btn-default btn-lg"> Get Started </a></center>
         </div>
       </div>
-    <% else %>
-      <div id="top" class="header">
-        <div class="vert-text">
-          <h1>Welcome <%=current_user.name if current_user.name.present?%></h1>
-          <h3><em><center>Continue tracking your Fitness</em></center><em></em></h3>
-        </div>
-      </div>
     <% end %>
     <!-- /Full Page Image Header Area -->
   
@@ -141,7 +134,7 @@
           <div class="col-md-4 col-md-offset-2 text-center">
             <div class="portfolio-item">
               <% if user_signed_in? %>
-                <a href="food_track/index"><%= image_tag "img/portfolio-3.jpg", height: 250, width: 300 %></a>
+                <a href="#"><%= image_tag "img/portfolio-3.jpg", height: 250, width: 300 %></a>
               <% else %>
                 <a href="#"><%= image_tag "img/portfolio-3.jpg", height: 250, width: 300 %></a>
               <% end %>
@@ -199,6 +192,7 @@
         $('a[href*=#]:not([href=#])').click(function() {
           if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
             || location.hostname == this.hostname) {
+
             var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
             if (target.length) {

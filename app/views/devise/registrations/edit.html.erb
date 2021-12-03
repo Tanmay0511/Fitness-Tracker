@@ -1,5 +1,3 @@
-<%= render 'dashboard/header'%>
-
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <div class="row">
@@ -10,36 +8,6 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :age %><br />
-    <%= f.number_field :age, autofocus: true, autocomplete: "age" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.select :gender, [["Male", "male"], ["Female", "female"]],{} %>
-  </div>
-
-  <div class="field">
-    <%= f.label :height %><br />
-    <%= f.number_field :height, autofocus: true, autocomplete: "height", step: 0.1 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :start_weight %><br />
-    <%= f.number_field :start_weight, autofocus: true, autocomplete: "start_weight", step: 0.1 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :goal_weight %><br />
-    <%= f.number_field :goal_weight, autofocus: true, autocomplete: "goal_weight", step: 0.1%>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -62,7 +30,7 @@
 
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password", required: true %>
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
   <div class="actions">
@@ -77,5 +45,3 @@
 <%= link_to "Back", :back %>
 </div>
 </div>
-
-<%= render 'dashboard/footer'%>
