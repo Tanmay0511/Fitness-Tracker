@@ -16,6 +16,6 @@ The Fitness Tracker is the web application which provide an individual the inter
 8- V02Max\
 9- Calories Burned by Activity
 
-in the exercise computation feature of the project. They can also track their daily food intake by which they can set goals for their health. They can also keep the track of their weight logs on the regular basis. They can also visualize their health stats in the dashboard feature of the application. This application also visualize the daily food intake of an individual.
+in the exercise computation feature of the project. They can also track their daily food intake by which they can set goals for their health. They can also keep the track of their weight logs on the regular basis. They can also visualize their health stats in the dashboard feature of the application. This application visualize the daily food intake of an individual and also the weight logs of an individual.
 
 
