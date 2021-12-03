@@ -1,0 +1,49 @@
+<%= render "dashboard/header"%>
+<div class="container">
+<h1>Track Your Food</h1>
+<center>
+<%= render "food_track/food_logs"%>
+<h2><strong>Search for Food Below and Add to track</strong></h2>
+<%= form_with local: true, method: :get, html:{ class: "search_form form-inline my-2 my-lg-0"} do |f|%>
+  <%= f.text_field :q, placeholder: "Search", data: { behavior: "autocomplete" }, class: "search_food form-control mr-sm-2" %>
+  <%= f.button "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+<% end %>
+</center>
+<% if @foods.present? %>
+<div class="row">
+  <% @foods.each do |food|%>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"><strong><%= food.name %></strong></h4>
+        <span class="card-text"><strong>Serving Size: </strong><%= food.serving_description %></span>
+        |
+        <span class="card-text"><strong>Serving Weight: </strong><%= food.serving_weight %> g</span>
+        <h4 class="card-text"><Strong>Calories: </Strong><%= food.calories %></h4>
+        <span class="card-text"><Strong>Fat: </strong><%= food.fat %></span>
+        <br>
+        <span class="card-text"><Strong>Protein: </strong><%= food.protein %></span>
+        <br>
+        <span class="card-text"><Strong>Carbohydrate: </strong><%= food.carbohydrate %></span>
+        <br>
+        <span class="card-text"><Strong>Fiber: </strong><%= food.fiber %></span>
+        <br>
+        <span class="card-text"><Strong>Sugar: </strong><%= food.sugar %></span>
+        <br>
+        <span class="card-text"><Strong>Iron: </strong><%= food.iron %></span>
+        <br>
+        <p>
+          <%= form_for :food_track, method: "get" do |f| %>
+            <%= f.hidden_field :food_id, :value => food.id %>
+            <%= f.submit "Add to Track" %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<% end %>
+
+</div>
+<%= render "dashboard/footer" %>

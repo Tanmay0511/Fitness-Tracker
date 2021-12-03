@@ -1,0 +1,39 @@
+<div class="container">
+
+  <h1>Food Intake for <%= params[:date] %></h1>
+  <p></p>
+  <h2>Total Calories: <%= params[:total] %></h2>
+  <p></p>
+  <p></p>
+
+  <% if @food_added.present? %>
+  <div class="row">
+    <% @food_added.each do |food|%>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body border">
+          <h4 class="card-title"><strong><%= food.name %></strong></h4>
+          <span class="card-text"><strong>Serving Size: </strong><%= food.serving_description %></span>
+          |
+          <span class="card-text"><strong>Serving Weight: </strong><%= food.serving_weight %> g</span>
+          <h4 class="card-text"><Strong>Calories: </Strong><%= food.calories %></h4>
+          <span class="card-text"><Strong>Fat: </strong><%= food.fat %></span>
+          <br>
+          <span class="card-text"><Strong>Protein: </strong><%= food.protein %></span>
+          <br>
+          <span class="card-text"><Strong>Carbohydrate: </strong><%= food.carbohydrate %></span>
+          <br>
+          <span class="card-text"><Strong>Fiber: </strong><%= food.fiber %></span>
+          <br>
+          <span class="card-text"><Strong>Sugar: </strong><%= food.sugar %></span>
+          <br>
+          <span class="card-text"><Strong>Iron: </strong><%= food.iron %></span>
+          <br>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+
+</div>

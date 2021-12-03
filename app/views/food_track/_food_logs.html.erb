@@ -1,0 +1,24 @@
+<div class="container">
+<center>
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th style="width: 200px"><strong>Date</strong></th>
+      <th style="width: 300px"><strong>Total Calories</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% if @arr.present? %>
+  <% @arr.each do |d| %>
+      <tr>
+        <td><%= d.first %></td>
+        <td><%= link_to show_path(date: d.first,total: d.second) do %><b><%= d.second %><% end %></b></td>
+      </tr>
+  <%end%>
+  <%else%>
+    No Data
+  <%end%>
+  </tbody>
+</table>
+</center>
+</div>
