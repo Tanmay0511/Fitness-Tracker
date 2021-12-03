@@ -3,7 +3,7 @@
 # README
 
 
-The FITNESS TRACKER is the web application which provide an individual the interface to track and get motivated by his fitness journey. An individual can calculate his/her:
+The FITNESS-TRACKER is the web application which provide an individual the interface to track and get motivated by his fitness journey. An individual can calculate his/her:
 
 
 1- Personal Fitness Test (PFT)\
