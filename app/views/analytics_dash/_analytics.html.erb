@@ -1,7 +1,14 @@
 <div class="container">
   <center>
     <div class="weight_chart">
-      <%= area_chart(WeightLog.pluck('created_at::date', :weight), width: "800px", height: "500px", colors: ["#cbc7bd", "#666"], xtitle: "Interval", ytitle: "Weight (lb)", title: "Weight Analysis", empty: "No data") %>
+      <%= area_chart(@weight_log, width: "800px", height: "500px", xtitle: "Interval", ytitle: "Weight (lb)", title: "Weight Analysis", empty: "No data") %>
+      <h2><strong>Goal Weight: </strong><%= current_user&.goal_weight%> lb &nbsp | &nbsp<strong>Current Weight: </strong> <%= WeightLog.last.weight if WeightLog.last.present? %> lb<h2>
+    </div>
+  </center>
+  <p></p>
+  <center>
+    <div class="calories_chart">
+      <%= area_chart(@arr, width: "800px", height: "500px", xtitle: "Interval", ytitle: "Calories", title: "Calories Intake Analysis", empty: "No data") %>
     </div>
   </center>
 </div>

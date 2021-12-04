@@ -1,6 +1,67 @@
 // Place all the styles related to the Dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.backgroundImage{
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width:100vw;
+  background: url('https://images.unsplash.com/photo-1602510599419-c688afe6a8db') no-repeat  ; 
+  background-attachment:fixed;
+  background-size:101vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.vert-text {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  background-color: 'red';
+}
+
+.vert-text h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 4.5em;
+  font-weight: 500;
+  
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+  width: 100%;
+  position: relative;
+  background-color:transparent;
+  // background: url('img/bg2.jpg') no-repeat center center ; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
 .navbar.navbar-fixed-top.navbar-inverse{
   padding-left: 100px;
   padding-right: 100px;
@@ -48,3 +109,4 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #cbc7bd; color: black;}
+

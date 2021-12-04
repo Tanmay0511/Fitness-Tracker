@@ -42,6 +42,19 @@ gem 'pry'
 #For analytics dashboard
 gem "chartkick"
 
+#For local email opener
+gem "letter_opener"
+
+#For Uml Diagram
+gem "railroady"
+gem "umlify"
+
+#For ERD Diagram
+gem 'rails-erd',:require=>false
+
+#For Search
+gem 'ransack'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

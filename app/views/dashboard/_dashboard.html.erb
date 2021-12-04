@@ -19,16 +19,27 @@
   </head>
 
   <body>
+     <div class="backgroundImage" ></div>
+  
     <!-- Full Page Image Header Area -->
     <% if !user_signed_in? %>
       <div id="top" class="header">
         <div class="vert-text">
           <h1>Fitness Tracker</h1>
           <h3><em><center>Your companion for fitness</em></center><em></em></h3>
-          <center><a href="#starting" class="btn btn-default btn-lg"> Get Started </a></center>
+         
+        </div>
+      </div>
+    <% else %>
+      <div id="top" class="header">
+        <div class="vert-text">
+          <h1>Welcome <%=current_user.name if current_user.name.present?%></h1>
+          <h3><em><center>Continue tracking your Fitness</em></center><em></em></h3>
         </div>
       </div>
     <% end %>
+    
+    
     <!-- /Full Page Image Header Area -->
   
     <!-- Intro -->
@@ -58,28 +69,28 @@
         <div class="row">
           <div class="col-md-2 col-md-offset-2 text-center">
             <div class="service-item">
-              <i class="service-icon fa fa-bicycle"></i>
+              <i class="service-icon fa fa-bicycle fa-4x"></i>
               <h4>Activities</h4>
               <p>Explore and compare the energy expenditure for various types of physical activities, including cycling, jogging and swimming as well as watching TV and sleeping.</p>
             </div>
           </div>
           <div class="col-md-2 text-center">
             <div class="service-item">
-              <i class="service-icon fa fa-area-chart"></i>
+              <i class="service-icon fa fa-area-chart fa-4x"></i>
               <h4>Weight Loss</h4>
               <p> Use the weight loss Feature to keep logs and to find the optimal way to reach your target body weight.</p>
             </div>
           </div>
           <div class="col-md-2 text-center">
             <div class="service-item">
-              <i class="service-icon fa fa-shield"></i>
+              <i class="service-icon fa fa-shield fa-4x" ></i>
               <h4>Nutrition</h4>
               <p>Food and nutrition is an integral part of everyday life.It can be used to plan healthy meals.</p>
             </div>
           </div>
           <div class="col-md-2 text-center">
             <div class="service-item">
-              <i class="service-icon fa fa-bullseye"></i>
+              <i class="service-icon fa fa-bullseye fa-4x"></i>
               <h4>Goals and reminders</h4>
               <p>Set short term and long term goals and stay motivated to develope healthy habits</p>
             </div>
@@ -110,9 +121,9 @@
           <div class="col-md-4 col-md-offset-2 text-center">
             <div class="portfolio-item">
               <% if user_signed_in? %>
-                <a href="/exercise_computation/index"><%= image_tag "img/portfolio-1.jpg", height: 250, width: 300 %></a>
+                <a href="/exercise_computation/index"><%= image_tag "img/portfolio-1.jpg", height: 210, width: 300 %></a>
               <% else %>
-                <a href="#"><%= image_tag "img/portfolio-1.jpg", height: 250, width: 300 %></a>
+                <a href="#"><%= image_tag "img/portfolio-1.jpg", height: 210, width: 300 %></a>
               <% end %>
               <h4>Exercise computations</h4>
               <p>Get a detail insight on workouts including caloric expenditure, Fat burned, Oxygen Consumption, and much more.</p>
@@ -121,9 +132,9 @@
           <div class="col-md-4 text-center">
             <div class="portfolio-item">
               <% if user_signed_in? %>
-                <a href="/weight_logs/index"><%= image_tag "img/portfolio-2.jpg", height: 250, width: 300 %></a>
+                <a href="/weight_logs/index"><%= image_tag "img/portfolio-2.jpg", height: 210, width: 300 %></a>
               <% else %>
-                <a href="#"><%= image_tag "img/portfolio-2.jpg", height: 250, width: 300 %></a>
+                <a href="#"><%= image_tag "img/portfolio-2.jpg", height: 210, width: 300 %></a>
               <% end %>
               <h4>Weight logs</h4>
               <p>Keeping a regular logs of weight is important in order to stay healthy and maintain or loose weight.</p>
@@ -134,9 +145,9 @@
           <div class="col-md-4 col-md-offset-2 text-center">
             <div class="portfolio-item">
               <% if user_signed_in? %>
-                <a href="#"><%= image_tag "img/portfolio-3.jpg", height: 250, width: 300 %></a>
+                <a href="food_track/index"><%= image_tag "img/portfolio-3.jpg", height: 210, width: 300 %></a>
               <% else %>
-                <a href="#"><%= image_tag "img/portfolio-3.jpg", height: 250, width: 300 %></a>
+                <a href="#"><%= image_tag "img/portfolio-3.jpg", height: 210, width: 300 %></a>
               <% end %>
               <h4>Track your food intake</h4>
               <p>Keep a in-detail track about what you eat and drink. Never loose a track of your calories.Choose your intake from our wide nutrition database and get the nutrition info instantly. </p>
@@ -145,9 +156,9 @@
           <div class="col-md-4 text-center">
             <div class="portfolio-item">
               <% if user_signed_in? %>
-                <a href="/analytics_dash/index"><%= image_tag "img/portfolio-4.jpg", height: 250, width: 300 %></a>
+                <a href="/analytics_dash/index"><%= image_tag "img/portfolio-4.jpg", height: 210, width: 300 %></a>
               <% else %>
-                <a href="#"><%= image_tag "img/portfolio-4.jpg", height: 250, width: 300 %></a>
+                <a href="#"><%= image_tag "img/portfolio-4.jpg", height: 210, width: 300 %></a>
               <% end %>
               <h4>Dashboard</h4>
               <p>Data tells you a lot more. From all the information displayed on the dashboard Take Insights, set short & long time goals and plan accordingly to achieve your optimal body goal.s</p>
